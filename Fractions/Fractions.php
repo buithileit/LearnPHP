@@ -57,7 +57,7 @@
 				}
 				//$numerator = $numerator1 *($bcnn/$denominator1) + $numerator2 *($bcnn/$denominator2);
 				$denominator = $bcnn;
-				
+				if($denominator == 1) return $numerator;
 				return $numerator . "/" . $denominator;
 			}
 		?>				

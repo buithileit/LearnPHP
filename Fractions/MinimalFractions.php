@@ -1,8 +1,13 @@
 <?php
-	function UCLN($numerator,$denominator){
+	//echo UCLN(14525779325689632454865135786328,2);
 
-		for($i =1; $i <= $numerator; $i++) {if($numerator%$i==0)$arr_Numerator[] = $i;}
-		for($i =1; $i <= $denominator; $i++) {if($denominator%$i==0)$arr_Denominator[] = $i;}
+	function UCLN($numerator,$denominator){
+		$miniNumber = $numerator;
+		if($numerator > $denominator){
+			$miniNumber = $denominator;
+		}
+		for($i =1; $i <= $miniNumber; $i++) {if($numerator%$i==0)$arr_Numerator[] = $i;}
+		for($i =1; $i <= $miniNumber; $i++) {if($denominator%$i==0)$arr_Denominator[] = $i;}
 		
 		$arr_Fractions = array_intersect($arr_Numerator, $arr_Denominator);
 		

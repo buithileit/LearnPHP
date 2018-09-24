@@ -9,26 +9,39 @@
 
     $('.validate-form').on('submit',function(){
         var check = true;
-
-        for(var i=0; i<input.length; i++) {
+        var image = "";
+        var dataJson;
+        /*for(var i=0; i<input.length; i++) {
             if(validate(input[i]) == false){
                 showValidate(input[i]);
                 check=false;
             }
-        }
+        }*/
         if(check ==true){
-          $.ajax({
+            $.ajax({
             type: 'post',
-            url: 'login.php',
+            url: 'ChomSao.php',
             data: $('form').serialize(),
             success: function (data) {
-              alert(data);
+                dataJson = JSON.parse(data);
+                //var obj = JSON.parse('{ "name":"Ma Kết", "image"="Capricorn", "time"="23/12 - 19/01"}');
+                //alert(dataJson.name);
+                //$('#dialog').html('<p>' + dataJson.name + ' (<span>' + dataJson.time + '</span>)</p>');
+                // image = dataJson.image;
+                $('#imageResult').attr('src', "images/" + dataJson.image + ".jpg");
+                $('#imageResult').attr('alt', dataJson.image);
+                // $( "#dialog p").val(dataJson.name);
+                // $( "#dialog span").val(dataJson.time);
             }
-          });
+            });
+        
+        // $('#imageResult').attr('src', "images/" + image + ".jpg");
+        // $('#imageResult').attr('alt', dataJson.image);
+        // $( "#dialog p").val(dataJson.name);
+        // $( "#dialog span").val(dataJson.time);
         }
-        return check;
+        // return check;
     });
-
 
     $('.validate-form .input100').each(function(){
         $(this).focus(function(){

@@ -1,5 +1,6 @@
 <?php
-    echo $_GET["username"]
-    echo $_GET["pass"]
-    console.log($_GET["username"]);
+    //echo $_POST["username"];
+    //echo $_POST["pass"];
+    echo $_POST["username"]." : ".$_POST["pass"];
 ?>
+
